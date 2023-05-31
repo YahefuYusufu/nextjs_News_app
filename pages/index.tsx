@@ -20,6 +20,7 @@ export const getServerSideProps: GetServerSideProps<
     props: {
       newsArticles: newsResponse.articles,
     },
+    // let error go to 500 page
   }
 }
 

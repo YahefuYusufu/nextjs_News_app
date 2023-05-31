@@ -39,9 +39,10 @@ export const getStaticProps: GetStaticProps<CategoryNesPageProps> = async ({
   return {
     props: {
       newsArticles: newsResponse.articles,
-      revalidate: 5 * 60,
     },
+    revalidate: 5 * 60,
   }
+  // let error go to 500 page
 }
 
 const CategoryNewsPage = ({ newsArticles }: CategoryNesPageProps) => {
