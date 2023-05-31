@@ -26,20 +26,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   }
 }
-
-export const getStaticProps: GetStaticProps<CategoryNesPageProps> = async ({
+export const getStaticProps: GetStaticProps<CategoryNewsPageProps> = async ({
   params,
 }) => {
   const category = params?.category?.toString()
-  const res = await fetch(
+  const response = await fetch(
     `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${process.env.NEWS_API_KEY}`
   )
-  const newsResponse: newsResponse = await res.json()
-
+  const newsResponse: newsResponse = await response.json()
   return {
-    props: {
-      newsArticles: newsResponse.articles,
-    },
+    props: { newsArticles: newsResponse.articles },
     revalidate: 5 * 60,
   }
   // let error go to 500 page
