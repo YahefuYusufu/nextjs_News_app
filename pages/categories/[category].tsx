@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   }
 }
-export const getStaticProps: GetStaticProps<CategoryNewsPageProps> = async ({
+export const getStaticProps: GetStaticProps<CategoryNesPageProps> = async ({
   params,
 }) => {
   const category = params?.category?.toString()
